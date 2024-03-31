@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: my-app
+   labels:
+      service: my-app
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         service: my-app
+   template:
+      metadata:
+         labels:
+            service: my-app
+      spec:
+         containers:
+            - name: my-app
+              image: 387055506802.dkr.ecr.us-west-2.amazonaws.com/my-ecr:latest
+              imagePullPolicy: Always
+              livenessProbe:
+                 httpGet:
+                    path: /health_check
+                    port: 5153
+                 initialDelaySeconds: 8
+                 timeoutSeconds: 5
+              readinessProbe:
+                 httpGet:
+                    path: "/readiness_check"
+                    port: 5153
+                 initialDelaySeconds: 10
+                 timeoutSeconds: 10
+              envFrom:
+                 - secretRef:
+                      name: db-password
+                 - configMapRef:
+                      name: db-configmap
+              ports:
+                 - containerPort: 5153
+         restartPolicy: Always

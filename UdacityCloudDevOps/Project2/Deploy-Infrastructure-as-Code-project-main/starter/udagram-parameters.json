@@ -1,0 +1,15 @@
+[
+	{
+	   "ParameterKey": "ProjectName",
+	   "ParameterValue": "UdagramProject"
+	},
+	{
+	   "ParameterKey": "InstanceType",
+	   "ParameterValue": "t2.micro"
+	},
+	{
+	   "ParameterKey": "AsgDesiredCapacity",
+	   "ParameterValue": "2"
+	}
+ ]
+ 
