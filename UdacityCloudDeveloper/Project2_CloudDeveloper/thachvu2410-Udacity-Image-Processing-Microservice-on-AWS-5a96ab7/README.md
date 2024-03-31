@@ -1,0 +1,1 @@
+Link: http://udacity-image-processing-microservice-o2.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg
